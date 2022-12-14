@@ -14,6 +14,7 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/blog.css">
+    <link rel="stylesheet" href="styles/styles.css">
 
     <!-- Custom styles for this template -->
     <link href="styles/blog.css" rel="stylesheet">
@@ -30,9 +31,8 @@
         <div class="col-sm-8 blog-main">
 
             <div class="blog-post">
-                <h2 class="blog-post-title">Sample blog post</h2>
+                <h2 class="blog-post-title"><a href="">Sample blog post 1</a></h2>
                 <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
-
                 <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
                 <hr>
                 <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
@@ -94,6 +94,7 @@
             </nav>
 
         </div><!-- /.blog-main -->
+        <?php include('sidebar.php');?>
 
 
 

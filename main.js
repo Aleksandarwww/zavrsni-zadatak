@@ -3,7 +3,7 @@ const commentsList = document.querySelector('#comments-list');
 const commentText = document.querySelector('#comment');
 const userNameComment = document.querySelector('#username-comment');
 const commentForm = document.querySelector('#comment-form');
-
+const deletePost = document.querySelector('.blog-post .delete');
 
 hideCommentsBtn.addEventListener('click', function () {
     if (this.value == "hide") {
@@ -28,7 +28,19 @@ commentForm.addEventListener('submit', function (e) {
         userNameComment.classList.remove('alert', 'alert-danger');
     }
 })
+function check(){
+    let question = confirm("Do you really want to delete this post?");
+    if(question){
 
+    return true;
 
+    }else{
+
+    alert("Thanks for not choosing to delete");
+    return false;
+
+    }
+}
+    
 
 

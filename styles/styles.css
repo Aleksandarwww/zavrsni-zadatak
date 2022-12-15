@@ -3,6 +3,7 @@ html body {
 }
 header .blog-masthead {
     background-color:#b34848 ;
+    min-height: 5vh;
 }
 body h1,body h2,body h3,body h4,body h5,body h6 {
     color: #b34848;
@@ -28,4 +29,7 @@ button {
  #comments-list li {
     display: flex;
     justify-content: space-between;
+}
+main.container {
+    min-height: 75vh;
 }

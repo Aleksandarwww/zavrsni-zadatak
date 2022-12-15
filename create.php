@@ -18,6 +18,7 @@
     <main role="main" class="container">
         <div class="row">
             <div class="col-sm-8 blog-main">
+
                  <form id="post-form" action="" method="POST">
                  <div class="form-group">
                     <label for="usr">Title:</label>
@@ -31,7 +32,7 @@
                     <label for="usr">Name:</label>
                     <input type="text" class="form-control"  name="username" id="username-post">
                 </div>
-                    <button type="submit" name="submit" class="btn btn-primary btn-block">Submit</button>
+                    <button type="submit" name="submit" class="btn btn-primary btn-block ">Submit</button>
                 </form>
             </div>
             <?php include('sidebar.php');?>
@@ -45,7 +46,6 @@
             $author = $_POST['username'];
             $currentDate = date("Y/m/d");
             $sql = "INSERT INTO posts (title, body, author, created_at) VALUES ('{$title}','{$post}','{$author}', '{$currentDate}')";
-            var_dump($_POST);
             $connection->exec($sql);
             unset($_POST); 
            header("Location: index.php");

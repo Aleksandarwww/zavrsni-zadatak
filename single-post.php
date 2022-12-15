@@ -33,6 +33,7 @@
                             <p class="blog-post-meta"><?php echo $post['created_at']; ?> by <?php echo $post['author'] ?></p>
                         <div>
                             <p><?php echo $post['body'];?></p>
+                            <a href="delete-post.php?post_id=<?php echo $postId ?>" onclick="return check()"><button class="btn btn-primary delete">Delete this post</button></a>
                         </div>
                 </div>
 

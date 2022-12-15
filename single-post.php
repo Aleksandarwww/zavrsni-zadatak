@@ -15,10 +15,8 @@
     include('header.php');
     $postId = $_GET['post_id'];
 
-    $sql = "SELECT * FROM posts as p WHERE p.id = {$postId}"; 
+    $sql = "SELECT * from posts as p RIGHT JOIN users as u ON p.user_id=u.id WHERE p.id = {$postId}"; 
     $posts = $fetchData($sql);
-
-
     ?>
 
     <main role="main" class="container">
@@ -30,7 +28,7 @@
 
                 <div class="blog-post">
                             <h2 class="blog-post-title"><a href="single-post.php?post_id=<?php echo($post['id']) ?>"><?php echo($post['title']) ?></a></h2>
-                            <p class="blog-post-meta"><?php echo $post['created_at']; ?> by <?php echo $post['author'] ?></p>
+                            <p class="blog-post-meta"><?php echo $post['created_at']; ?> by <?php echo $post['first_name'] . " " . $post['last_name'] ?></p>
                         <div>
                             <p><?php echo $post['body'];?></p>
                             <a href="delete-post.php?post_id=<?php echo $postId ?>" onclick="return check()"><button class="btn btn-primary delete">Delete this post</button></a>

@@ -13,6 +13,8 @@
     <?php
     include ('db.php');
     include('header.php');
+    $sql = "SELECT * from posts as p RIGHT JOIN users as u ON p.user_id=u.id ORDER BY p.created_at DESC";
+    $posts = $fetchData($sql);
     ?>
 
     <main role="main" class="container">
@@ -29,8 +31,21 @@
                     <textarea class="form-control" rows="5" name="post" id="post-body"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="usr">Name:</label>
-                    <input type="text" class="form-control"  name="username" id="username-post">
+                <label for="exampleFormControlSelect1">Select user :</label>
+                    <select class="form-control" name="selectUser">
+    
+                        <?php
+                            foreach ($posts as $post) {
+                            ?>
+                            <option>
+                              <?php echo $post['id'] . "." . $post['first_name'] . " " . $post['last_name'];?>
+                            </option>
+                            <?php
+                            }
+                            ?>
+                        </option>
+       
+                    </select>
                 </div>
                     <button type="submit" name="submit" class="btn btn-primary btn-block ">Submit</button>
                 </form>
@@ -40,12 +55,12 @@
     </main>
     <?php 
         include('footer.php');
-        if(!empty($_POST['title']) && !empty($_POST['post']) && !empty($_POST['username'])){
+        if(!empty($_POST['title']) && !empty($_POST['post'])){
             $title  = $_POST['title'];
             $post = $_POST['post'];
-            $author = $_POST['username'];
+            $user_id = explode('.', $_POST['selectUser'])[0];
             $currentDate = date("Y/m/d");
-            $sql = "INSERT INTO posts (title, body, author, created_at) VALUES ('{$title}','{$post}','{$author}', '{$currentDate}')";
+            $sql = "INSERT INTO posts (title, body, user_id, created_at) VALUES ('{$title}','{$post}',{$user_id}, '{$currentDate}')";
             $connection->exec($sql);
             unset($_POST); 
            header("Location: index.php");

@@ -38,8 +38,14 @@
                 ?>
             </div>
             <?php include('sidebar.php');?>
+
+            <nav class="blog-pagination">
+                <a class="btn btn-outline-primary" href="#">Older</a>
+                <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+            </nav>
         </div>
     </main>
+
     <?php include('footer.php');?>
 </body>
 </html>

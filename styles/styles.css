@@ -7,9 +7,12 @@ header .blog-masthead {
 body h1,body h2,body h3,body h4,body h5,body h6 {
     color: #b34848;
 }
- .blog-post-title a  {
+.blog-post-title a  {
     color: #b34848;
 }
 .blog-post-title a:hover {
     text-decoration: underline;
+    color: #b34848;
 }
+
+

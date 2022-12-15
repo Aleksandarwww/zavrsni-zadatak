@@ -3,7 +3,6 @@
     $username = "root";
     $password = "";
     $dbname = "blog";
-
     try {
         $connection = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         // set the PDO error mode to exception
@@ -12,6 +11,13 @@
     catch(PDOException $e)
     {
         echo $e->getMessage();
+    }
+
+    $fetchData = function(string $sql) use ($connection){
+        $statement = $connection->prepare($sql);
+        $statement->execute();
+        $statement->setFetchMode(PDO::FETCH_ASSOC);
+        return $statement->fetchAll();
     }
 
 ?>

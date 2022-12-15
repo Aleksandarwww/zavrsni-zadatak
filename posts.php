@@ -10,47 +10,36 @@
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-<?php
-include ('db.php');
-include('header.php');
+    <?php
+    include ('db.php');
+    include('header.php');
 
-$sql = "SELECT id, title, body,author, created_at from posts ORDER BY created_at DESC";
-$statement = $connection->prepare($sql);
+    $sql = "SELECT * from posts ORDER BY created_at DESC";
+    $posts = $fetchData($sql);
+    ?>
 
-$statement->execute();
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-sm-8 blog-main">
+                <?php
+                foreach ($posts as $post) {
+                ?>
 
-$statement->setFetchMode(PDO::FETCH_ASSOC);
+                    <div class="blog-post">
+                            <h2 class="blog-post-title"><a href="single-post.php?post_id=<?php echo($post['id']) ?>"><?php echo($post['title']) ?></a></h2>
+                            <p class="blog-post-meta"><?php echo $post['created_at']; ?> by <?php echo $post['author'] ?></p>
+                        <div>
+                            <p><?php echo $post['body'];?></p>
+                        </div>
+                </div>
 
-
-$posts = $statement->fetchAll();
-?>
-
-<main role="main" class="container">
-    <div class="row">
-        <div class="col-sm-8 blog-main">
-            <?php
-            foreach ($posts as $post) {
-            ?>
-
-                <div class="blog-post">
-                        <h2 class="blog-post-title"><a href="single-post.php?post_id=<?php echo($post['id']) ?>"><?php echo($post['title']) ?></a></h2>
-                        <p class="blog-post-meta"><?php echo $post['created_at']; ?> by <?php echo $post['author'] ?></p>
-                    <div>
-                        <p><?php echo $post['body'];?></p>
-                    </div>
+                <?php
+                }
+                ?>
             </div>
-
-            <?php
-            }
-            ?>
-        </div><!-- /.blog-main -->
-        <?php include('sidebar.php');?>
-    </div>
-</main>
-
-
-
-
-<? phpinclude('footer.php');?>
+            <?php include('sidebar.php');?>
+        </div>
+    </main>
+    <?php include('footer.php');?>
 </body>
 </html>

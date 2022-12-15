@@ -47,7 +47,7 @@
                 </div>
                 <div class="form-group">
                     <label for="usr">Name:</label>
-                    <input type="text" class="form-control"  name="username" id="username">
+                    <input type="text" class="form-control"  name="username" id="username-comment">
                 </div>
                     <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                 </form>

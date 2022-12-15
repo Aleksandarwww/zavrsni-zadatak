@@ -40,27 +40,19 @@
                 }
                 ?>
             <div class="container">
-                <form action="" method="POST">
+                <form id="comment-form" action="create-comment.php?post_id=<?php echo $postId ?>" method="POST">
                 <div class="form-group">
                     <label for="comment">Leave a comment:</label>
                     <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="usr">Name:</label>
-                    <input type="text" class="form-control"  name="username">
+                    <input type="text" class="form-control"  name="username" id="username">
                 </div>
                     <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                 </form>
                 </div>
-                <?php   
-                    if(!empty($_POST['username']) && !empty($_POST['text'])){
-                        $author  = $_POST['username'];
-                        $commentText = $_POST['text'];
-                        $sql = "INSERT INTO comments (author, comment_text, post_id) VALUES ('{$author}','{$commentText}',{$postId})";
-                        $connection->exec($sql);
-                        unset($_POST); 
-                        header("Refresh:0");
-                    }
+                <?php
 
                     include('comments.php');
                 ?>
@@ -71,5 +63,6 @@
 
 
     <?php include('footer.php');?>
+    <script src="main.js"></script>
 </body>
 </html>

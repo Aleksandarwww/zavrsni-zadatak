@@ -15,4 +15,13 @@ body h1,body h2,body h3,body h4,body h5,body h6 {
     color: #b34848;
 }
 
+.hide-comments{
+    display: none;
+}
+.show-comments {
+    display: block;
+}
 
+button {
+    cursor: pointer;
+}

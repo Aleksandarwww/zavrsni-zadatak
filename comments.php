@@ -18,8 +18,10 @@
     $comments = $fetchData($sql);
     ?>
     <hr>
+        <button class="btn btn-default" id="hide-comments-btn" value="hide">Hide comments</button>
+    <hr>
     <p>Comments :</p>
-    <ul>
+    <ul id="comments-list">
         <?php
         foreach ($comments as $comment) {
         ?>
@@ -32,6 +34,7 @@
         }
         ?>
     </ul>
+    <script src="main.js"></script>
 </body>
 
 </html>
